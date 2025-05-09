@@ -1,0 +1,69 @@
+#customers {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+.btn-edit {
+    width: 24px;
+    border: none;
+    outline: none;
+    background: transparent !important; 
+    color: coral !important;
+}
+
+.btn-delete {
+    width: 24px;
+    border: none;
+    outline: none;
+    background: transparent !important; 
+    color: red !important;
+}
+
+.modal-user-container {
+    .modal-header {
+        background-color: #04AA6D !important;
+        button {
+            background-color: transparent;
+            color: white;
+            border: none;
+            font-size: 24px;
+        }
+    }
+    .modal-user-body {
+        display: flex;
+        gap: 10px;
+
+        .input-container {
+            width: 50%;
+            margin-top: 10px; 
+
+            input, select {
+                border-radius: 5px;
+                height: 30px;
+            }
+        }
+    }
+}

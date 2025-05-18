@@ -15,3 +15,9 @@
 .text-red {
     color: $common-red !important;
 }
+
+select.form-control {
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+}

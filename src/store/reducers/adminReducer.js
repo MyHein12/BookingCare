@@ -1,33 +1,88 @@
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    isLoggedIn: false,
-    adminInfo: null
+    isLoadingGender: false,
+    isLoadingPosition: false,
+    isLoadingRole: false,
+    genders: [],
+    roles: [],
+    positions: []
 }
 
-const appReducer = (state = initialState, action) => {
+const adminReducer = (state = initialState, action) => {
     switch (action.type) {
-        case actionTypes.ADMIN_LOGIN_SUCCESS:
+        case actionTypes.FETCH_GENDER_START: {
+            let copyState = { ...state }
+            copyState.isLoadingGender = true;
             return {
-                ...state,
-                isLoggedIn: true,
-                adminInfo: action.adminInfo
+                ...copyState
             }
-        case actionTypes.ADMIN_LOGIN_FAIL:
+        }
+        case actionTypes.FETCH_GENDER_SUCCESS: {
+            let copyState = { ...state }
+            copyState.genders = action.data;
+            copyState.isLoadingGender = false;
             return {
-                ...state,
-                isLoggedIn: false,
-                adminInfo: null
+                ...copyState
             }
-        case actionTypes.PROCESS_LOGOUT:
+        }
+        case actionTypes.FETCH_GENDER_FAILED: {
+            let copyState = { ...state }
+            copyState.genders = [];
+            copyState.isLoadingGender = false;
             return {
-                ...state,
-                isLoggedIn: false,
-                adminInfo: null
+                ...copyState
             }
+        }
+        case actionTypes.FETCH_POSITION_START: {
+            let copyState = { ...state }
+            copyState.isLoadingPosition = true;
+            return {
+                ...copyState
+            }
+        }
+        case actionTypes.FETCH_POSITION_SUCCESS: {
+            let copyState = { ...state }
+            copyState.positions = action.data;
+            copyState.isLoadingPosition = false;
+            return {
+                ...copyState
+            }
+        }
+        case actionTypes.FETCH_POSITION_FAILED: {
+            let copyState = { ...state }
+            copyState.positions = [];
+            copyState.isLoadingPosition = false;
+            return {
+                ...copyState
+            }
+        }
+        case actionTypes.FETCH_ROLE_START: {
+            let copyState = { ...state }
+            copyState.isLoadingRole = true;
+            return {
+                ...copyState
+            }
+        }
+        case actionTypes.FETCH_ROLE_SUCCESS: {
+            let copyState = { ...state }
+            copyState.roles = action.data;
+            copyState.isLoadingRole = false;
+            return {
+                ...copyState
+            }
+        }
+        case actionTypes.FETCH_ROLE_FAILED: {
+            let copyState = { ...state }
+            copyState.roles = [];
+            copyState.isLoadingRole = false;
+            return {
+                ...copyState
+            }
+        }
         default:
             return state;
     }
 }
 
-export default appReducer;
+export default adminReducer;
